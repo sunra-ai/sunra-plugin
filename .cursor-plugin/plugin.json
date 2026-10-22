@@ -7,7 +7,7 @@
     "email": "support@sunra.ai"
   },
   "homepage": "https://sunra.ai/mcp",
-  "repository": "https://github.com/2enai/sunra-plugin",
+  "repository": "https://github.com/sunra-ai/sunra-plugin",
   "license": "MIT",
   "keywords": ["sunra", "image-generation", "video-generation", "audio", "3d", "mcp"],
   "logo": "assets/icon.png"
