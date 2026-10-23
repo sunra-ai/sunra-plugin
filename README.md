@@ -19,6 +19,15 @@ After you install the plugin and sign in, ask your agent to make something with 
 - "How many Sunra credits would a 10-second video cost?"
 - "Check my Sunra credit balance."
 
+## Install in Gemini CLI or Antigravity
+
+```bash
+gemini extensions install https://github.com/sunra-ai/sunra-plugin
+agy plugin install https://github.com/sunra-ai/sunra-plugin
+```
+
+The first command is for Gemini CLI, the second for the Antigravity CLI.
+
 ## Requirements
 
 - A [Sunra](https://sunra.ai) account
