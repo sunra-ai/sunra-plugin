@@ -1,0 +1,20 @@
+{
+  "name": "sunra",
+  "displayName": "Sunra",
+  "description": "Generate images, video, audio and 3D models with Sunra from your AI coding agent.",
+  "version": "1.0.0",
+  "logo": "assets/icon.png",
+  "author": {
+    "name": "Sunra",
+    "url": "https://sunra.ai"
+  },
+  "homepage": "https://sunra.ai/mcp",
+  "repository": "https://github.com/sunra-ai/sunra-plugin",
+  "license": "MIT",
+  "keywords": ["sunra", "image-generation", "video-generation", "audio", "3d", "mcp"],
+  "suggestedPrompts": [
+    "Generate an image of a red fox in a snowy forest with Sunra.",
+    "Make a short video of ocean waves at sunset with Sunra.",
+    "Check my Sunra credit balance."
+  ]
+}

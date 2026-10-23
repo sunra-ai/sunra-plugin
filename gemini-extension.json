@@ -1,0 +1,10 @@
+{
+  "name": "sunra",
+  "version": "1.0.0",
+  "description": "Generate images, video, audio and 3D models with Sunra from your AI coding agent.",
+  "mcpServers": {
+    "sunra": {
+      "httpUrl": "https://mcp.sunra.ai"
+    }
+  }
+}
