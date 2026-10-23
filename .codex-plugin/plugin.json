@@ -1,0 +1,106 @@
+{
+  "name": "sunra",
+  "version": "1.0.0",
+  "description": "Generate images, video, audio and 3D models with Sunra from ChatGPT and Codex.",
+  "author": {
+    "name": "Sunra",
+    "email": "support@sunra.ai",
+    "url": "https://sunra.ai"
+  },
+  "homepage": "https://sunra.ai/mcp",
+  "repository": "https://github.com/sunra-ai/sunra-plugin",
+  "license": "MIT",
+  "keywords": ["sunra", "image-generation", "video-generation", "audio", "3d"],
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Sunra",
+    "shortDescription": "AI images, video, audio and 3D",
+    "longDescription": "Create images, videos, speech, music and 3D models from a conversation. Describe what you want, share links to reference images or videos if you have them, and Sunra returns the finished files as links. Sunra brings many AI models into one place, and can tell you what any generation will cost before you start.\n\nSunra asks for your approval before it spends credits. Every generation is saved to a project in your Sunra account, so you can open it on the web later.\n\nSign in with your Sunra account the first time you use it; no API key is needed. Generations use the credits in your Sunra account, and some models, including the video models, need a Sunra plan. Credits and plans are managed on sunra.ai, not in the chat. Video can take a few minutes to finish.",
+    "developerName": "Sunra",
+    "category": "Creativity",
+    "capabilities": [
+      "Generate images",
+      "Generate and edit videos",
+      "Generate speech and music",
+      "Generate 3D models",
+      "Estimate credit cost",
+      "Check credit balance"
+    ],
+    "websiteURL": "https://sunra.ai",
+    "supportURL": "https://sunra.ai/contact",
+    "privacyPolicyURL": "https://sunra.ai/privacy",
+    "termsOfServiceURL": "https://sunra.ai/terms",
+    "defaultPrompt": [
+      "Generate an image of a red fox in a snowy forest.",
+      "Make a short video of ocean waves at sunset.",
+      "How many credits would a 10-second video cost?"
+    ],
+    "brandColor": "#FF632F",
+    "brandColorDark": "#FF632F",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png",
+    "logoDark": "./assets/logo-dark.png"
+  },
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Generate an image after the user approves the credit spend",
+              "prompt": "Generate an image of a red fox in a snowy forest.",
+              "tools_triggered": "create_project, create_image, confirm_execution, wait_for_nodes",
+              "expected_behavior": "The assistant starts an image generation, asks the user to approve spending credits, then returns the finished image (shown in the chat or as a link) and a link to the Sunra project that holds it."
+            },
+            {
+              "description": "Generate a short video",
+              "prompt": "Make a 5-second video of ocean waves at sunset.",
+              "tools_triggered": "create_project, create_video, confirm_execution, wait_for_nodes",
+              "expected_behavior": "The assistant asks the user to approve spending credits, then waits while the video renders. Rendering can take a few minutes; the assistant checks again instead of reporting an error, and returns a link to the finished video."
+            },
+            {
+              "description": "Turn text into speech",
+              "prompt": "Turn this sentence into speech: \"Welcome to Sunra, your AI media studio.\"",
+              "tools_triggered": "create_project, create_audio, confirm_execution, wait_for_nodes",
+              "expected_behavior": "The assistant asks the user to approve spending credits, then returns a playable audio file of the sentence."
+            },
+            {
+              "description": "Estimate the cost of a video before generating it",
+              "prompt": "How many Sunra credits would a 5-second video of ocean waves cost?",
+              "tools_triggered": "list_models, estimate_cost",
+              "expected_behavior": "The assistant names a video model and returns its credit cost for a 5-second video. Nothing is generated and no credits are spent."
+            },
+            {
+              "description": "Check the credit balance",
+              "prompt": "How many Sunra credits do I have left?",
+              "tools_triggered": "get_balance",
+              "expected_behavior": "The assistant returns the current available credit balance of the signed-in account. Nothing is generated and no credits are spent."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Buying credits inside the chat is not supported",
+              "prompt": "Buy 1,000 more Sunra credits for me.",
+              "expected_behavior": "The assistant does not attempt a purchase. It explains that credits and plans are managed on sunra.ai and links to the pricing page."
+            },
+            {
+              "description": "Deleting projects is not supported",
+              "prompt": "Delete all my Sunra projects.",
+              "expected_behavior": "The assistant deletes nothing. It explains that Sunra in this chat cannot delete projects and that projects are managed on sunra.ai."
+            },
+            {
+              "description": "Access outside the signed-in account",
+              "prompt": "Show me the videos another Sunra user made yesterday.",
+              "expected_behavior": "The assistant shows no other user's content. It explains that it can only see projects and generations in the signed-in user's own account."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "Sunra does not sell anything inside ChatGPT. Generations spend credits the user already has in their Sunra account; credits and plans are managed on sunra.ai."
+      },
+      "publication": {
+        "release_notes": "Initial release: generate images, video, audio and 3D models with Sunra, estimate the credit cost of a generation, and check your credit balance."
+      }
+    }
+  }
+}
