@@ -15,7 +15,7 @@
   "interface": {
     "displayName": "Sunra",
     "shortDescription": "AI images, video, audio and 3D",
-    "longDescription": "Create images, videos, speech, music and 3D models from a conversation. Describe what you want, share links to reference images or videos if you have them, and Sunra returns the finished files as links. Sunra brings many AI models into one place, and can tell you what any generation will cost before you start.\n\nSunra asks for your approval before it spends credits. Every generation is saved to a project in your Sunra account, so you can open it on the web later.\n\nSign in with your Sunra account the first time you use it; no API key is needed. Generations use the credits in your Sunra account, and some models, including the video models, need a Sunra plan. Credits and plans are managed on sunra.ai, not in the chat. Video can take a few minutes to finish.",
+    "longDescription": "Create images, videos, speech, music and 3D models from a conversation. Describe what you want, share links to reference images or videos if you have them, and Sunra returns the finished files as links. Sunra brings many AI models into one place, and can tell you what any generation will cost before you start.\n\nSunra asks for your approval before it spends credits. Every generation is saved to a project in your Sunra account, so you can open it on the web later.\n\nSign in with your Sunra account the first time you use it; no API key is needed. Generations use the credits in your Sunra account. Video can take a few minutes to finish.",
     "developerName": "Sunra",
     "category": "Creativity",
     "capabilities": [
@@ -27,7 +27,7 @@
       "Check credit balance"
     ],
     "websiteURL": "https://sunra.ai",
-    "supportURL": "https://sunra.ai/contact",
+    "supportURL": "https://sunra.ai/support",
     "privacyPolicyURL": "https://sunra.ai/privacy",
     "termsOfServiceURL": "https://sunra.ai/terms",
     "defaultPrompt": [
