@@ -15,7 +15,7 @@
   "interface": {
     "displayName": "Sunra",
     "shortDescription": "AI images, video, audio and 3D",
-    "longDescription": "Create images, videos, speech, music and 3D models from a conversation. Describe what you want, share links to reference images or videos if you have them, and Sunra returns the finished files as links. Sunra brings many AI models into one place, and can tell you what any generation will cost before you start.\n\nSunra asks for your approval before it spends credits. Every generation is saved to a project in your Sunra account, so you can open it on the web later.\n\nSign in with your Sunra account the first time you use it; no API key is needed. Generations use the credits in your Sunra account. Video can take a few minutes to finish.",
+    "longDescription": "Create images, videos, speech, music and 3D models from a conversation. Describe what you want, share links to reference images or videos if you have them, and Sunra returns the finished files as links. Sunra brings many AI models into one place, and can tell you what any generation will cost before you start.\n\nEvery generation is saved to a project in your Sunra account, so you can open it on the web later.\n\nSign in with your Sunra account the first time you use it; no API key is needed. Generations use the credits in your Sunra account. Video can take a few minutes to finish.",
     "developerName": "Sunra",
     "category": "Creativity",
     "capabilities": [
@@ -47,22 +47,22 @@
         "test_cases": {
           "positive": [
             {
-              "description": "Generate an image after the user approves the credit spend",
+              "description": "Generate an image",
               "prompt": "Generate an image of a red fox in a snowy forest.",
               "tools_triggered": "create_project, create_image, confirm_execution, wait_for_nodes",
-              "expected_behavior": "The assistant starts an image generation, asks the user to approve spending credits, then returns the finished image (shown in the chat or as a link) and a link to the Sunra project that holds it."
+              "expected_behavior": "The assistant generates the image and returns it (shown in the chat or as a link) with a link to the Sunra project that holds it. Depending on the user's plugin permission setting, ChatGPT may ask the user to approve the request first."
             },
             {
               "description": "Generate a short video",
               "prompt": "Make a 5-second video of ocean waves at sunset.",
               "tools_triggered": "create_project, create_video, confirm_execution, wait_for_nodes",
-              "expected_behavior": "The assistant asks the user to approve spending credits, then waits while the video renders. Rendering can take a few minutes; the assistant checks again instead of reporting an error, and returns a link to the finished video."
+              "expected_behavior": "The assistant starts the video and waits while it renders. Rendering can take a few minutes. If the video is ready, the assistant returns a link to it. If the assistant stops waiting first, it says the video is still rendering (not an error) and links the Sunra project; asking \"Is the video ready now?\" then returns a link to the finished video. Depending on the user's plugin permission setting, ChatGPT may ask the user to approve the request first."
             },
             {
               "description": "Turn text into speech",
               "prompt": "Turn this sentence into speech: \"Welcome to Sunra, your AI media studio.\"",
               "tools_triggered": "create_project, create_audio, confirm_execution, wait_for_nodes",
-              "expected_behavior": "The assistant asks the user to approve spending credits, then returns a playable audio file of the sentence."
+              "expected_behavior": "The assistant returns a playable audio file of the sentence. Depending on the user's plugin permission setting, ChatGPT may ask the user to approve the request first."
             },
             {
               "description": "Estimate the cost of a video before generating it",
